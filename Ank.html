@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <p class="error-message" id="nameError"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+                <p class="error-message" id="usernameError"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <p class="error-message" id="emailError"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone">
+                <p class="error-message" id="phoneError"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <p class="error-message" id="passwordError"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4"></textarea>
+            </div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById("registrationForm");
+        const name = document.getElementById("name");
+        const username = document.getElementById("username");
+        const email = document.getElementById("email");
+        const phone = document.getElementById("phone");
+        const password = document.getElementById("password");
+
+        form.addEventListener("submit", function (e) {
+            let isValid = true;
+
+            if (name.value.trim() === "") {
+                isValid = false;
+                document.getElementById("nameError").textContent = "Name is required";
+            } else {
+                document.getElementById("nameError").textContent = "";
+            }
+
+            if (username.value.trim() === "") {
+                isValid = false;
+                document.getElementById("usernameError").textContent = "Username is required";
+            } else {
+                document.getElementById("usernameError").textContent = "";
+            }
+
+            if (email.value.trim() === "") {
+                isValid = false;
+                document.getElementById("emailError").textContent = "Email is required";
+            } else {
+                document.getElementById("emailError").textContent = "";
+            }
+
+            if (phone.value.trim() === "") {
+                isValid = false;
+                document.getElementById("phoneError").textContent = "Phone is required";
+            } else {
+                document.getElementById("phoneError").textContent = "";
+            }
+
+            if (password.value.trim() === "") {
+                isValid = false;
+                document.getElementById("passwordError").textContent = "Password is required";
+            } else {
+                document.getElementById("passwordError").textContent = "";
+            }
+
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
